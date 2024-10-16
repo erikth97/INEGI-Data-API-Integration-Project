@@ -1,0 +1,40 @@
+# Entorno virtual de Python
+env/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Archivos de configuración y secretos
+.env
+
+# Archivos de caché y compilados de Python
+*.pyc
+*.pyo
+*.pyd
+
+# Configuraciones de IDEs
+.vscode/
+.idea/
+
+# Archivos y carpetas de logs
+*.log
+logs/
+*.pot
+
+# Bases de datos locales
+*.sqlite3
+db.sqlite3
+
+# Archivos de migraciones de Django
+**/migrations/**
+
+# Archivos generados automáticamente por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Node modules (si tu proyecto incluye alguna parte de frontend)
+node_modules/
+
+# Archivos que puedan tener datos sensibles
+config/
