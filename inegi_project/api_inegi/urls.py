@@ -1,4 +1,3 @@
-# api_inegi/urls.py
 from django.urls import path
 from .views import EstadoListView, MunicipioListView, LocalidadListView, AsentamientoListView
 
