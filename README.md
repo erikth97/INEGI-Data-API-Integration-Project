@@ -9,6 +9,7 @@ Este proyecto permite consultar datos geográficos de México desde la API de IN
 - API REST para consultar la información, con filtros para estados, municipios, localidades y asentamientos.
 - Paginación para manejar grandes volúmenes de datos.
 - Optimización de consultas a la base de datos para un rendimiento eficiente.
+- Autenticación y Autorización utilizando tokens JWT (JSON Web Tokens) para proteger los endpoints y restringir el acceso solo a usuarios autenticados.
 
 ## Requisitos Previos
 - Python 3.12
@@ -101,3 +102,38 @@ Visita [http://127.0.0.1:8000/api/](http://127.0.0.1:8000/api/) para ver la API 
   - `cve_ent`: Filtra por clave de estado.
   - `cve_mun`: Filtra por clave de municipio.
   - `cve_loc`: Filtra por clave de localidad.
+
+### Autenticación y Autorización
+La API está protegida mediante JSON Web Tokens (JWT). Solo los usuarios autenticados pueden acceder a los endpoints protegidos.
+
+## Obtener un Token de Autenticación
+Para obtener un token de autenticación, envía una solicitud POST a:
+
+```bash
+POST /api/token/
+```
+Con los siguientes datos en el cuerpo de la solicitud:
+```bash
+{
+    "username": "tu_usuario",
+    "password": "tu_contraseña"
+}
+```
+
+## Acceder a los Endpoints Protegidos
+Una vez que obtengas el token, añade el siguiente encabezado a tus solicitudes para acceder a los endpoints protegidos:
+```bash
+Authorization: Bearer <tu_token>
+```
+
+## Renovar el Token de Acceso
+Si el token de acceso expira, puedes solicitar un nuevo token usando el token de actualizacion:
+```bash
+POST /api/token/refresh/
+```
+Con el siguiente cuerpo de la solicitud:
+```bash
+{
+    "refresh": "tu_refresh_token"
+}
+```
